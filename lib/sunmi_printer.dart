@@ -92,7 +92,7 @@ class SunmiPrinter {
     await _channel.invokeMethod("PRINT_COLUMN", arguments);
   }
 
-  /// int between 1 to 12. ex: [12,1,12]
+  /// columnWitdh divided based on MaxWitdh -> ex if max width 32: [15,2,15]
   /// columnAlignment -> 0 align left, 1 center, 2 align right. ex: [0,1,0]
   static Future<void> printColumnList(List<String> stringColumns, List<int> columnWidth, List<int> columnAlignment) async {
     Map<String, dynamic> arguments = <String, dynamic>{
