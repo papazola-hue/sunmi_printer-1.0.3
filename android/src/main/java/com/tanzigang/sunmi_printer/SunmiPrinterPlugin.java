@@ -47,6 +47,8 @@ public class SunmiPrinterPlugin implements FlutterPlugin, MethodCallHandler {
     sunmiPrinterMethod = new SunmiPrinterMethod(registrar.context());
     channel.setMethodCallHandler(new SunmiPrinterPlugin());
   }
+  int[] columnWidth = {12,1,12};
+  int[] columnAlignment = {0,1,0};
 
   @Override
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
@@ -156,18 +158,14 @@ public class SunmiPrinterPlugin implements FlutterPlugin, MethodCallHandler {
       case "PRINT_COLUMN":
         String textA = call.argument("textA");
         String textB = call.argument("textB");
-        int[] columnWidth = {12,1,12};
-        int[] columnAlignment = {0,1,0};
-        String[] data = {textA, ':',textB};
+        String[] data = {textA, ":",textB};
         sunmiPrinterMethod.printColumn(data, columnWidth, columnAlignment);
         result.success(true);
         break;
 
       case "PRINT_COLUMN_LIST":
-        List<String> list = call.argument("stringColumns");
+        ArrayList<String> list = call.argument("stringColumns");
         String[] stringColumns = list.toArray(new String[0]);
-        int[] columnWidth = call.argument("columnWidth");
-        int[] columnAlignment = call.argument("columnAlignment");
         sunmiPrinterMethod.printColumn(stringColumns, columnWidth, columnAlignment);
         result.success(true);
         break;
