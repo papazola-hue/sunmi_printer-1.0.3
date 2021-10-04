@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import androidx.annotation.NonNull;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
@@ -162,7 +163,14 @@ public class SunmiPrinterPlugin implements FlutterPlugin, MethodCallHandler {
         sunmiPrinterMethod.printColumn(data, columnWidth, columnAlignment);
         result.success(true);
         break;
-        
+
+      case "PRINT_COLUMN_LIST":
+        ArrayList<String> list = call.argument("stringColumns");
+        String[] stringColumns = list.toArray(new String[0]);
+        sunmiPrinterMethod.printColumn(stringColumns, columnWidth, columnAlignment);
+        result.success(true);
+        break;
+
       case "PRINT_IMAGE":
         byte[] bytes = call.argument("bitmap");
         Bitmap bitmap = BitmapFactory.decodeByteArray( bytes, 0, bytes.length );
