@@ -83,6 +83,7 @@ class SunmiPrinter {
     await _channel.invokeMethod("SET_FONT_BOLD", arguments);
   }
 
+  /// result ex -> TextA : TextB
   static Future<void> printColumn(String textA, String textB) async {
     Map<String, dynamic> arguments = <String, dynamic>{
       "textA": textA,
@@ -91,11 +92,13 @@ class SunmiPrinter {
     await _channel.invokeMethod("PRINT_COLUMN", arguments);
   }
 
-  static Future<void> printColumnList(List<String> stringColumns, Int32List columnWidth, Int32List columnAlignment) async {
+  /// int between 1 to 12. ex: [12,1,12]
+  /// columnAlignment -> 0 align left, 1 center, 2 align right. ex: [0,1,0]
+  static Future<void> printColumnList(List<String> stringColumns, List<int> columnWidth, List<int> columnAlignment) async {
     Map<String, dynamic> arguments = <String, dynamic>{
       "stringColumns": stringColumns,
-      "columnWidth": columnWidth,
-      "columnAlignment": columnAlignment,
+      "columnWidth": Int32List.fromList(columnWidth),
+      "columnAlignment": Int32List.fromList(columnAlignment),
     };
     await _channel.invokeMethod("PRINT_COLUMN_LIST", arguments);
   }
