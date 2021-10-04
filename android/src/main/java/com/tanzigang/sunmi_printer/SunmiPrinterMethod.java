@@ -133,6 +133,15 @@ public class SunmiPrinterMethod {
         }
     }
 
+    public Boolean printColumnText(String[] stringColumns, int[] columnWidth, int[] columnAlignment) {
+        try {
+            _woyouService.printColumnsText(stringColumns, columnWidth, columnAlignment, this._callback());
+            return true;
+        } catch (RemoteException e) {
+            return false;
+        }
+    }
+
 //
 //    public Boolean setFontType(String fontType) {
 //        byte[] command = EscPosCommand.setFont(fontType);
