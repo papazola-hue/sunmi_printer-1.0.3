@@ -120,7 +120,6 @@ public class SunmiPrinterPlugin implements FlutterPlugin, MethodCallHandler {
             status_msg = "EXCEPTION";
         }
 
-        Toast.makeText(_context, "Sunmi Printer Status :" + status_msg, Toast.LENGTH_LONG).show();
         result.success(status_msg);
         break;
 
@@ -203,7 +202,6 @@ public class SunmiPrinterPlugin implements FlutterPlugin, MethodCallHandler {
             mode_desc = "EXCEPTION";
         }
 
-        Toast.makeText(_context, "Sunmi Printer Mode :" + mode_desc, Toast.LENGTH_LONG).show();
         result.success(mode_desc);
         break;
 

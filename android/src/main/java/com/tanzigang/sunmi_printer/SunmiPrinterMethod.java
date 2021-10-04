@@ -66,6 +66,50 @@ public class SunmiPrinterMethod {
     public int updatePrinter() {
         try {
             final int status =  _woyouService.updatePrinterState();
+            String status_msg = "";
+
+            // response printer status
+            switch (status) {
+                case 0:
+                    status_msg = "ERROR";
+                    break;
+                case 1:
+                    status_msg = "NORMAL";
+                    break;
+                case 2:
+                    status_msg = "ABNORMAL_COMMUNICATION";
+                    break;
+                case 3:
+                    status_msg = "OUT_OF_PAPER";
+                    break;
+                case 4:
+                    status_msg = "PREPARING";
+                    break;
+                case 5:
+                    status_msg = "OVERHEATED";
+                    break;
+                case 6:
+                    status_msg = "OPEN_THE_LID";
+                    break;
+                case 7:
+                    status_msg = "PAPER_CUTTER_ABNORMAL";
+                    break;
+                case 8:
+                    status_msg = "PAPER_CUTTER_RECOVERED";
+                    break;
+                case 9:
+                    status_msg = "NO_BLACK_MARK";
+                    break;
+                case 505:
+                    status_msg = "NO_PRINTER_DETECTED";
+                    break;
+                case 507:
+                    status_msg = "FAILED_TO_UPGRADE_FIRMWARE";
+                    break;
+                default:
+                    status_msg = "EXCEPTION";
+            }
+            Toast.makeText(_context, "Sunmi Printer Status :" + status_msg, Toast.LENGTH_LONG).show();
             return status;
         } catch (RemoteException e) {
             return 0; // error
@@ -168,6 +212,26 @@ public class SunmiPrinterMethod {
     public int getPrinterMode() {
         try {
             final int mode = _woyouService.getPrinterMode();
+            String mode_desc = "";
+
+            // response printer status
+            switch (mode) {
+                case 0:
+                    mode_desc = "NORMAL_MODE";
+                    break;
+                case 1:
+                    mode_desc = "BLACK_LABEL_MODE";
+                    break;
+                case 2:
+                    mode_desc = "LABEL_MODE";
+                    break;
+                case 3:
+                    mode_desc = "ERROR";
+                    break;
+                default:
+                    mode_desc = "EXCEPTION";
+            }
+            Toast.makeText(_context, "Sunmi Printer Mode :" + mode_desc, Toast.LENGTH_LONG).show();
             return mode;
         } catch (RemoteException e) {
             return 3; // error;
