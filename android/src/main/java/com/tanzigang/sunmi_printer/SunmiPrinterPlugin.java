@@ -48,7 +48,7 @@ public class SunmiPrinterPlugin implements FlutterPlugin, MethodCallHandler {
     sunmiPrinterMethod = new SunmiPrinterMethod(registrar.context());
     channel.setMethodCallHandler(new SunmiPrinterPlugin());
   }
-  int[] columnWidth = {12,1,12};
+  int[] columnWidth = {14,3,14};
   int[] columnAlignment = {0,1,0};
 
   @Override
