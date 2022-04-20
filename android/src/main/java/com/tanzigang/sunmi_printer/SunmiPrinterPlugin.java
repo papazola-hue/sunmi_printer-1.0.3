@@ -61,6 +61,12 @@ public class SunmiPrinterPlugin implements FlutterPlugin, MethodCallHandler {
 
         break;
 
+      case "CASE_DRAWER":
+        sunmiPrinterMethod.caseDrawer();
+        result.success(true);
+
+        break;
+
       case "UNBIND_PRINTER_SERVICE":
         sunmiPrinterMethod.unbindPrinterService();
         result.success(true);

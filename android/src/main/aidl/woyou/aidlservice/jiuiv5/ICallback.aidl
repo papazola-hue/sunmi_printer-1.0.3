@@ -1,13 +1,14 @@
 package woyou.aidlservice.jiuiv5;
 
+/**
+ * 打印服务执行结果的回调
+ */
 interface ICallback {
 
-	oneway void onRunResult(boolean isSuccess);
-
-	oneway void onReturnString(String result);
-
-	oneway void  onRaiseException(int code, String msg);
-
-	oneway void  onPrintResult(int code, String msg);
-
+	/**
+	* 返回执行结果
+	* @param isSuccess:	  true执行成功，false 执行失败
+	*/
+	oneway void onRunResult(boolean isSuccess, int code, String msg);
+	
 }
