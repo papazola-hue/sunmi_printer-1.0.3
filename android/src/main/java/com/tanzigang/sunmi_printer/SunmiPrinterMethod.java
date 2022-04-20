@@ -251,30 +251,4 @@ public class SunmiPrinterMethod {
 
         }
     }
-
-    private ICallback _callback() {
-        return new ICallback() {
-            @Override
-            public void onRunResult(boolean isSuccess) throws RemoteException {
-            }
-
-            @Override
-            public void onReturnString(String result) throws RemoteException {
-            }
-
-            @Override
-            public void onRaiseException(int code, String msg) throws RemoteException {
-
-            }
-
-            @Override
-            public void onPrintResult(int code, String msg) throws RemoteException {
-            }
-
-            @Override
-            public IBinder asBinder() {
-                return null;
-            }
-        };
-    }
 }
