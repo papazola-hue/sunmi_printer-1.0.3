@@ -11,6 +11,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+
+import woyou.aidlservice.jiuiv5.*;
+
 public class SunmiPrinterMethod {
 
     final private String TAG = SunmiPrinterMethod.class.getSimpleName();
