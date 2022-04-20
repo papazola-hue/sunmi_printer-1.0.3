@@ -44,11 +44,6 @@ class SunmiPrinter {
     return status;
   }
 
-  static Future<bool?> initPrinter() async {
-    final bool? status = await _channel.invokeMethod('INIT_PRINTER');
-    return status;
-  }
-
   static Future<String?> getPrinterStatus() async { 
     final String? status = await _channel.invokeMethod('GET_UPDATE_PRINTER');
     final statusMsg = _printerStatus[status];
