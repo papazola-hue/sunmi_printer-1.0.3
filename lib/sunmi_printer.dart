@@ -44,6 +44,11 @@ class SunmiPrinter {
     return status;
   }
 
+  static Future<bool?> initPrinter() async {
+    final bool? status = await _channel.invokeMethod('INIT_PRINTER');
+    return status;
+  }
+
   static Future<String?> getPrinterStatus() async { 
     final String? status = await _channel.invokeMethod('GET_UPDATE_PRINTER');
     final statusMsg = _printerStatus[status];
@@ -60,6 +65,9 @@ class SunmiPrinter {
   static Future<void> printText(String text) async {
     Map<String, dynamic> arguments = <String, dynamic>{"text": text};
     await _channel.invokeMethod("PRINT_TEXT", arguments);
+  }
+  static Future<void> caseDrawer() async {
+    await _channel.invokeMethod("CASE_DRAWER");
   }
 
   static Future<void> lineWrap(int lines) async {
